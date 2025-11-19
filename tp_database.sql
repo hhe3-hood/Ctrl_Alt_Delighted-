@@ -5,7 +5,7 @@
 PRAGMA foreign_keys = ON;
 
 -- 1. Users Table
-CREATE TABLE Users (
+CREATE TABLE IF NOT EXISTS Users (
     user_id TEXT PRIMARY KEY,                       -- UUID stored as TEXT
     username TEXT NOT NULL UNIQUE,
     email TEXT NOT NULL UNIQUE,
@@ -21,14 +21,14 @@ CREATE TABLE Users (
 );
 
 -- 2. Task_Types Table
-CREATE TABLE Task_Types (
+CREATE TABLE IF NOT EXISTS Task_Types (
     task_type_id INTEGER PRIMARY KEY AUTOINCREMENT,
     type_name TEXT NOT NULL,
     description TEXT
 );
 
 -- 3. Color_Schemes Table
-CREATE TABLE Color_Schemes (
+CREATE TABLE IF NOT EXISTS Color_Schemes (
     color_scheme_id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     primary_color TEXT NOT NULL,      -- e.g. #FF5733
@@ -36,7 +36,7 @@ CREATE TABLE Color_Schemes (
 );
 
 -- 4. Tasks Table
-CREATE TABLE Tasks (
+CREATE TABLE IF NOT EXISTS Tasks (
     task_id TEXT PRIMARY KEY,                    -- UUID stored as TEXT
     user_id TEXT NOT NULL,
     task_type_id INTEGER,
@@ -55,7 +55,7 @@ CREATE TABLE Tasks (
 );
 
 -- 5. Comments Table
-CREATE TABLE Comments (
+CREATE TABLE IF NOT EXISTS Comments (
     comment_id TEXT PRIMARY KEY,                  -- UUID stored as TEXT
     task_id TEXT NOT NULL,
     user_id TEXT NOT NULL,
