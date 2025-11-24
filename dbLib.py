@@ -5,10 +5,11 @@ app = Flask(__name__)
 class database:
     def __init__(self, app):
         self.app = app
-        self.databaseName = 'timepal.db'
-        self.databaseSql = "tp_database.sql"
+        self.databaseName = 'timepal.db' # name of the database
+        self.databaseSql = "tp_database.sql" # name of the sql file
 
     def getAll(self, tableName):
+        # Use to return all records from a table
         with app.app_context():
             cur = self._get_db().cursor()
             rows = cur.execute(f"SELECT * FROM {tableName}").fetchall()
@@ -16,6 +17,7 @@ class database:
             return rows
 
     def init_db(self):
+        # Use to open connection to database, python takes care of closing the connection
         with app.app_context():
             db = self._get_db()
             with open(self.databaseSql, mode='r') as f:
