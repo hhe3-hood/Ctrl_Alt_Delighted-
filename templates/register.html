@@ -1,9 +1,11 @@
  <!doctype html>
 <html lang="en">
   <head>
-   {% include 'navigationBar.html' %}
+    {% include 'mainhead.html' %}
   </head>
   <body>
+    {% include 'navigationBar.html' %}
+
     <h1>Create account</h1>
     <form method="post" action="{{ url_for('register') }}">
       <label for="username">Username</label>

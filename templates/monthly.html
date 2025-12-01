@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+ <head>
+    {% include 'mainhead.html' %}
+</head>
+ <link rel="stylesheet" href="static\monthly.css">
+  <body>
+     {% include 'navigationBar.html' %}
+
+  <div class="panel">
+     <section class="calendar-page" aria-label="November 2025 calendar">
+    <header class="calendar-header">
+      <div class="calendar-title">November 2025</div>
+      <div class="calendar-subtitle">Full Page View</div>
+    </header>
+
+    <div class="calendar-grid-wrapper">
+
+      <!-- Weekday headings -->
+      <div class="weekday-row">
+        <div class="weekday">Sun</div>
+        <div class="weekday">Mon</div>
+        <div class="weekday">Tue</div>
+        <div class="weekday">Wed</div>
+        <div class="weekday">Thu</div>
+        <div class="weekday">Fri</div>
+        <div class="weekday">Sat</div>
+      </div>
+
+      <!-- Days grid: adjust empty cells and numbers to match the month -->
+      <div class="days-grid">
+        <!-- Example layout where Nov 1 starts on a Saturday: Sun–Fri empty -->
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day"><span class="day-number">1</span></div>
+
+        <div class="day"><span class="day-number">2</span></div>
+        <div class="day"><span class="day-number">3</span></div>
+        <div class="day"><span class="day-number">4</span></div>
+        <div class="day"><span class="day-number">5</span></div>
+        <div class="day"><span class="day-number">6</span></div>
+        <div class="day"><span class="day-number">7</span></div>
+        <div class="day"><span class="day-number">8</span></div>
+
+        <div class="day"><span class="day-number">9</span></div>
+        <div class="day"><span class="day-number">10</span></div>
+        <div class="day"><span class="day-number">11</span></div>
+        <div class="day"><span class="day-number">12</span></div>
+        <div class="day today"><span class="day-number">13</span></div>
+        <div class="day"><span class="day-number">14</span></div>
+        <div class="day"><span class="day-number">15</span></div>
+
+        <div class="day"><span class="day-number">16</span></div>
+        <div class="day"><span class="day-number">17</span></div>
+        <div class="day"><span class="day-number">18</span></div>
+        <div class="day"><span class="day-number">19</span></div>
+        <div class="day"><span class="day-number">20</span></div>
+        <div class="day"><span class="day-number">21</span></div>
+        <div class="day"><span class="day-number">22</span></div>
+
+        <div class="day"><span class="day-number">23</span></div>
+        <div class="day"><span class="day-number">24</span></div>
+        <div class="day"><span class="day-number">25</span></div>
+        <div class="day"><span class="day-number">26</span></div>
+        <div class="day"><span class="day-number">27</span></div>
+        <div class="day"><span class="day-number">28</span></div>
+        <div class="day"><span class="day-number">29</span></div>
+
+        <div class="day"><span class="day-number">30</span></div>
+        <!-- trailing empties if needed to fill final week -->
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  </body>
+</html>

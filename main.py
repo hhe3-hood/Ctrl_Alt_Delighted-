@@ -32,7 +32,7 @@ def load_user(user_id):
     return Users.query.get(int(user_id))
 
 
-# Login route
+# Flask Route Listings -- Move to routes.py later
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -48,6 +48,14 @@ def login():
             return render_template("login.html", error="Invalid username or password")
 
     return render_template("login.html")
+
+@app.route("/register")
+def register():
+    return render_template("register.html")
+
+@app.route("/monthly")
+def monthly():
+    return render_template("monthly.html")
 
 @app.route("/")
 def home():

@@ -1,0 +1,121 @@
+
+
+
+.calendar-page {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .calendar-header {
+      background: var(--header-bg);
+      color: var(--header-color);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .calendar-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .calendar-subtitle {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .calendar-grid-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 16px 24px 24px;
+    }
+
+    .weekday-row,
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    .weekday-row {
+      background: var(--weekday-bg);
+      border: 1px solid var(--border-color);
+      border-bottom: none;
+    }
+
+    .weekday {
+      text-align: center;
+      padding: 10px 0;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-right: 1px solid var(--border-color);
+    }
+
+    .weekday:last-child {
+      border-right: none;
+    }
+
+    .days-grid {
+      flex: 1;
+      border: 1px solid var(--border-color);
+      border-top: none;
+    }
+
+    .day {
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 6px 8px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: 0.9rem;
+      min-height: 100px;
+    }
+
+    .day:nth-child(7n) {
+      border-right: none;
+    }
+
+    .day-number {
+      font-weight: 600;
+    }
+
+    .day.empty {
+      background: #fafafa;
+    }
+
+    .day.today {
+      background: var(--today-bg);
+      color: var(--today-color);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .calendar-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+
+      .calendar-grid-wrapper {
+        padding: 8px 8px 16px;
+      }
+
+      .weekday {
+        font-size: 0.7rem;
+        padding: 6px 0;
+      }
+
+      .day {
+        font-size: 0.8rem;
+        padding: 4px 4px;
+      }
+    }
