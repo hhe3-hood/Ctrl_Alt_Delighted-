@@ -3,12 +3,19 @@ Welcome to the best Flask website project EVER!
 If you are here, you're probably ready to run our site locally and feel like a total tech princess. Let's get you all set up and ready to slay 💅💻
 
 Step 1. Download the Project 
+
     Because this is a local-run project, start by grabbing the ZIP file. 
+    
     1. Click the green "Code" button on GitHub 
+    
     2. Hit "Download ZIP" 
+
     3. Unzip it like the absolute CHAMP you are 🫶
+    
     4. Open the folder in Terminal (or in a coding software if you like ✨aesthetic coding✨)
+    
       macOS/Linux :  cd /path/to/Ctrl_Alt_Delighted--main
+      
       Windows  :  cd "C:\path\to\Ctrl_Alt_Delighted--main"
 
 Step 2. Make Sure Python3 is Installed 
