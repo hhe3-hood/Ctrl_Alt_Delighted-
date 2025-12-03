@@ -19,12 +19,19 @@ Step 1. Download the Project
       Windows  :  cd "C:\path\to\Ctrl_Alt_Delighted--main"
 
 Step 2. Make Sure Python3 is Installed 
+
     1. Run: 
+    
         macOS/Linux : python3 --version
+        
         Windows : python --version
+        
     If you see a version number like 3.x.x, you are all set 😚
+    
     If not, download Python here: 
+    
         👉 https://www.python.org/downloads/
+        
     Make sure Windows users check the box "Add Python to PATH" during install. That is super, super      important 🙂‍↕️
     
 Step 3: Install the required packages 
