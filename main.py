@@ -5,8 +5,6 @@ from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-from dbLib import database
-from models import Tasks
 from sqlalchemy import or_, and_
 
 
@@ -90,12 +88,6 @@ def home():
     return render_template("login.html")
 
 if __name__ == "__main__":
-
-    dbCnn = database(app)
-    dbCnn.init_db()
-    testRows = dbCnn.getAll("Color_Schemes")
-    #for row in testRows:
-   #     print(row["name"], row["primary_color"])
 
     app.run()
 
