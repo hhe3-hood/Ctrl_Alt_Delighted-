@@ -8,7 +8,6 @@ PRAGMA foreign_keys = ON;
 CREATE TABLE IF NOT EXISTS Users (
     user_id TEXT PRIMARY KEY,                       -- UUID stored as TEXT
     username TEXT NOT NULL UNIQUE,
-    email TEXT NOT NULL UNIQUE,
     password_hash TEXT NOT NULL,
     email_verified INTEGER DEFAULT 0,               -- INTEGER as boolean (0/1)
     failed_login_attempts INTEGER DEFAULT 0,

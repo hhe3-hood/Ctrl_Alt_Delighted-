@@ -1,38 +1,48 @@
+import os
 import sqlite3
 import calendar
-import datetime
+from datetime import datetime
 from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy import or_, and_
+from models import Users, Tasks
+from models import db
 
 
 # Info Found Here: https://www.geeksforgeeks.org/python/how-to-add-authentication-to-your-app-with-flask-login/
 # https://www.geeksforgeeks.org/python/connect-flask-to-a-database-with-flask-sqlalchemy/
 
-DATABASE = 'timepal.db'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATABASE = os.path.join(BASE_DIR, "timepal.db")
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + DATABASE
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SECRET_KEY"] = "supersecretkey"
 
-db = SQLAlchemy(app)
+db.init_app(app)
+
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 
-class Users(UserMixin, db.Model):
-    __tablename__ = "users"
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(250), unique=True, nullable=False)
-    password = db.Column(db.String(250), nullable=False)
+def init_db_from_sql():
+    if not os.path.exists(DATABASE):
+        conn = sqlite3.connect(DATABASE)
+        sql_path = os.path.join(BASE_DIR, "tp_database.sql")
+        with open(sql_path, "r", encoding="utf-8") as f:
+            sql_script = f.read()
+        conn.executescript(sql_script)
+        conn.commit()
+        conn.close()
+
 
 # Load user for Flask-Login
 @login_manager.user_loader
 def load_user(user_id):
-    return Users.query.get(int(user_id))
+    return Users.query.get(user_id)
 
 
 # Flask Route Listings -- Move to routes.py later
@@ -40,27 +50,35 @@ def load_user(user_id):
 def login():
     if request.method == "POST":
         username = request.form.get("username")
-        password = request.form.get("password")
+        password_hash = request.form.get("password")
 
         user = Users.query.filter_by(username=username).first()
 
-        if user and check_password_hash(user.password, password):
+        if user and check_password_hash(user.password_hash, password_hash):
             login_user(user)
-            return redirect(url_for("dashboard"))
+            return redirect(url_for("monthly"))
         else:
             return render_template("login.html", error="Invalid username or password")
 
     return render_template("login.html")
 
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        username = request.form["username"]
+        password_hash = request.form["password"]
+        password_hash = generate_password_hash(password_hash)
+        new_user = Users(username=username, password_hash=password_hash)
+        db.session.add(new_user)
+        db.session.commit()
+        return redirect(url_for("login"))
     return render_template("register.html")
 
 @app.route("/monthly")
 def monthly():
 
     today = datetime.now()
-    days_in_month = calendar.monthrange(today.year, today.month)
+    days_in_month = calendar.monthrange(today.year, today.month)[1]  # get number of days
     start_of_month = today.replace(day=1)
     end_of_month = today.replace(day=days_in_month)
 
@@ -69,12 +87,12 @@ def monthly():
         .filter(
             or_(
                 and_(  # start_date between range_start and range_end
-                    Tasks.start_date >= start_of_month,
-                    Tasks.start_date <= end_of_month,
+                    Tasks.start_time >= start_of_month,
+                    Tasks.start_time <= end_of_month,
                 ),
                 and_(  # end_date between (or equal to) range_start and range_end
-                    Tasks.end_date >= start_of_month,
-                    Tasks.end_date <= end_of_month,
+                    Tasks.end_time >= start_of_month,
+                    Tasks.end_time <= end_of_month,
                 ),
             )
         )
@@ -88,6 +106,6 @@ def home():
     return render_template("login.html")
 
 if __name__ == "__main__":
-
-    app.run()
+    init_db_from_sql()
+    app.run(debug=True)
 
