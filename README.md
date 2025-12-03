@@ -20,7 +20,7 @@ Step 1. Download the Project
 
 Step 2. Make Sure Python3 is Installed 
 
-    1. Run: 
+    Run: 
     
         macOS/Linux : python3 --version
         
@@ -35,32 +35,52 @@ Step 2. Make Sure Python3 is Installed
     Make sure Windows users check the box "Add Python to PATH" during install. That is super, super      important 🙂‍↕️
     
 Step 3: Install the required packages 
+
     These are the tools our website uses behind the scenes 
+    
     Run: 
+    
         macOS/Linux : pip3 install flask flask_sqlalchemy flask_wtf email_validator
+        
         Windows : pip install flask flask_sqlalchemy flask_wtf email_validator
 
 Step 4: (macOS + Linux only) Make sure your PATH includes Python's local bin 
+
     If your computer ever says: 
+
         flask: command not found
+        
     Just add your local Python bin folder to PATH : 
+    
         echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
         source ~/.bashrc
+        
     Or for zsh users: 
+    
         echo 'export PATH="$HOME/Library/Python/3.9/bin:$PATH"' >> ~/.zshrc
         source ~/.zshrc
+        
     Windows users usually don't need this step 🥳 🤩
 
 Step 5: Run the Website!
+
     Inside the project folder, start the server: 
+    
         flask --app main run
+        
     Or if you are in your ✨developer era✨:
+    
         flask --app main run --debug
+        
     Your terminal should show something like: 
+    
          * Running on http://127.0.0.1:5000
+         
     Open that link in your broswer and BOOM! Website time! 🤯 😮 🙌
+    
 
 👏👏👏 You are all set! 👏👏👏
 Your local setup is ready and running, great job!
+
 Thanks for checking out our project, and feel free to reach out if you need help or want to contribute. Happy coding 😄💛✨
 
