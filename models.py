@@ -1,3 +1,7 @@
+# TimePal Models.py for SQLAlchemy
+# Author: Lindsey Hilditch & Team
+# Date: 2025-12-2
+
 import uuid
 from flask_login import UserMixin
 from datetime import datetime

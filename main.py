@@ -1,3 +1,7 @@
+# TimePal Main.py with flask paths and logic
+# Author: Lindsey Hilditch & Team
+# Date: 2025-12-2
+
 import os
 import sqlite3
 import calendar
@@ -16,6 +20,7 @@ from models import db
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATABASE = os.path.join(BASE_DIR, "timepal.db")
+
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + DATABASE
@@ -77,13 +82,15 @@ def register():
 @app.route("/monthly")
 def monthly():
 
+    # defaults to current month based on date
     today = datetime.now()
     days_in_month = calendar.monthrange(today.year, today.month)[1]  # get number of days
-    start_of_month = today.replace(day=1)
-    end_of_month = today.replace(day=days_in_month)
+    start_of_month = datetime(today.year, today.month, 1, 0, 0, 0)
+    end_of_month = datetime(today.year, today.month, days_in_month, 23, 59, 59)
 
     month_tasks = (
         Tasks.query
+        .order_by(Tasks.start_time)
         .filter(
             or_(
                 and_(  # start_date between range_start and range_end
@@ -96,10 +103,24 @@ def monthly():
                 ),
             )
         )
-        .all()
     )
 
-    return render_template("monthly.html", Tasks=month_tasks)
+    # Converting the model to list to be consumed by javascript/ json
+    month_tasks_data = [
+        {
+            "task_id": t.task_id,
+            "title": t.title,
+            "description": t.description,
+            "start_time": t.start_time.isoformat() if t.start_time else None,
+            "end_time": t.end_time.isoformat() if t.end_time else None,
+            "is_completed": t.is_completed,
+            "day_numb": t.start_time.day,
+            "s_time": t.start_time.strftime("%I:%M %p"),
+        }
+        for t in month_tasks
+    ]
+
+    return render_template("monthly.html",month_tasks=month_tasks_data)
 
 @app.route("/")
 def home():
@@ -108,4 +129,9 @@ def home():
 if __name__ == "__main__":
     init_db_from_sql()
     app.run(debug=True)
+
+
+
+
+
 

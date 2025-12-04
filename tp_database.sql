@@ -64,7 +64,6 @@ CREATE TABLE IF NOT EXISTS Comments (
     FOREIGN KEY (task_id) REFERENCES Tasks(task_id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
 );
-
 -- Optional: Preload default Task Types
 INSERT INTO Task_Types (type_name, description)
 VALUES ('Homework', 'Assignments and school work'),
@@ -78,3 +77,67 @@ VALUES ('Default Blue', '#3B82F6'),
        ('Soft Pink', '#EC4899'),
        ('Mellow Yellow', '#FACC15'),
        ('Cool Green', '#22C55E');
+
+-- Testing Data for Default Tasks
+-- -- -- Demo Data userID: 5101582a-794c-4c14-9b6f-4c4f7222919b
+
+INSERT INTO Tasks (
+    task_id, user_id, task_type_id, color_scheme_id,
+    title, description, start_time, end_time,
+    reminder_time, is_completed
+) VALUES (
+    'task-001', 'c50f6a59-ac8f-49fd-a35a-29c432b5fa4d', 1, 1,
+    'Project kickoff meeting',
+    'Initial meeting with team to plan December milestones.',
+    '2025-12-02 09:00:00', '2025-12-02 10:00:00',
+    '2025-12-02 08:45:00', 0
+);
+
+INSERT INTO Tasks (
+    task_id, user_id, task_type_id, color_scheme_id,
+    title, description, start_time, end_time,
+    reminder_time, is_completed
+) VALUES (
+    'task-002', 'c50f6a59-ac8f-49fd-a35a-29c432b5fa4d', 2, 2,
+    'Write sprint documentation',
+    'Prepare documentation for sprint deliverables.',
+    '2025-12-05 14:00:00', '2025-12-05 16:00:00',
+    '2025-12-05 13:30:00', 0
+);
+
+INSERT INTO Tasks (
+    task_id, user_id, task_type_id, color_scheme_id,
+    title, description, start_time, end_time,
+    reminder_time, is_completed
+) VALUES (
+    'task-003', 'c50f6a59-ac8f-49fd-a35a-29c432b5fa4d', 3, 3,
+    'Code review session',
+    'Review pull requests for calendar module.',
+    '2025-12-08 11:00:00', '2025-12-08 12:30:00',
+    '2025-12-08 10:45:00', 1
+);
+
+INSERT INTO Tasks (
+    task_id, user_id, task_type_id, color_scheme_id,
+    title, description, start_time, end_time,
+    reminder_time, is_completed
+) VALUES (
+    'task-004', 'c50f6a59-ac8f-49fd-a35a-29c432b5fa4d', 1, 4,
+    'Database maintenance window',
+    'Run migrations and vacuum SQLite database.',
+    '2025-12-12 19:00:00', '2025-12-12 21:00:00',
+    '2025-12-12 18:30:00', 0
+);
+
+INSERT INTO Tasks (
+    task_id, user_id, task_type_id, color_scheme_id,
+    title, description, start_time, end_time,
+    reminder_time, is_completed
+) VALUES (
+    'task-005', 'c50f6a59-ac8f-49fd-a35a-29c432b5fa4d', 4, 2,
+    'Monthly planning review',
+    'Review upcoming January features and task backlog.',
+    '2025-12-20 15:00:00', '2025-12-20 16:30:00',
+    '2025-12-20 14:30:00', 0
+);
+

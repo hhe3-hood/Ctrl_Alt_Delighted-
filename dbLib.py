@@ -1,3 +1,7 @@
+# TimePal dbLib.py - replaced with SQLAlchemy
+# Author: Lindsey Hilditch & Team
+# Date: 2025-11-30
+
 import sqlite3
 from flask import Flask, g
 app = Flask(__name__)

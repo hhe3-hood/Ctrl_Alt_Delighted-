@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='monthly.css') }}">
 
     <script defer>
+
+      // Tasks for the Month //
+      const monthtasks = {{ month_tasks|tojson }};
+      console.log("month_tasks");
+      console.log(monthtasks);
+
+
+
       document.addEventListener("DOMContentLoaded", function () {
         const daysGrid = document.querySelector(".days-grid");
         const title = document.querySelector(".calendar-title");
@@ -48,7 +56,7 @@
           const day = document.createElement("div");
           day.classList.add("day");
 
-          const dayNumber = document.createElement("span");
+          const dayNumber = document.createElement("div");
           dayNumber.classList.add("day-number");
           dayNumber.textContent = i;
           day.appendChild(dayNumber);
@@ -62,6 +70,15 @@
             day.classList.add("today");
           }
 
+          // Adds Task to Day
+          // Need to add support for many tasks on same day
+          for (const task of monthtasks) {
+            if( i === task.day_numb){
+              const dayTask = document.createElement("div");
+              dayTask.textContent = task.title + " " + task.s_time;
+              day.appendChild(dayTask);
+            }
+          }
           daysGrid.appendChild(day);
         }
 
@@ -108,4 +125,5 @@
       </section>
     </div>
   </body>
+
 </html>
