@@ -1,3 +1,5 @@
+![Banner](https://github.com/therookie-tech/repo/raw/main/assets/banner.png)
+
 # 🌈✨ Ctrl_Alt_Delighted: TimePal Local Setup Guide ✨🌈
 Welcome to the best Flask website project EVER!
 If you are here, you're probably ready to run our site locally and feel like a total tech princess. Let's get you all set up and ready to slay 💅💻
