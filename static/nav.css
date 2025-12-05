@@ -1,0 +1,124 @@
+/* ---------- NAVIGATION BAR ---------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #f6d5f7 0%, #fbe9d7 100%);
+  color: #2f3e46;
+  font-family: 'Poppins', sans-serif;
+  padding: 14px 40px;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ---------- LOGO ---------- */
+.logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.07em;
+  color: #ff5c8d;
+  user-select: none;
+}
+
+/* ---------- NAVIGATION LINKS ---------- */
+.navLinkContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink a {
+  color: #2f3e46;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+
+.navLink a:hover,
+.navLink a.active {
+  background-color: #ff80ab;
+  color: #ffffff;
+  box-shadow: 0 3px 8px rgba(255, 128, 171, 0.4);
+}
+
+/* ---------- RIGHT SIDE ACTIONS (search + buttons) ---------- */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* ---------- ADD EVENT BUTTON ---------- */
+.addButton {
+  background-color: #ff80ab;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.addButton:hover {
+  background-color: #ff5c8d;
+  transform: translateY(-2px);
+}
+
+/* ---------- SIGN OUT BUTTON ---------- */
+.signOutButton {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.signOutButton:hover {
+  background-color: #b91d2f;
+  transform: translateY(-2px);
+}
+
+/* ---------- RESPONSIVE DESIGN (MOBILE) ---------- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 14px;
+    padding: 16px 24px;
+  }
+
+  .navLinkContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .searchBar {
+    width: 100%;
+  }
+}

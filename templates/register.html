@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include 'mainhead.html' %}
+    <!-- Link the register page CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+  </head>
+  <body>
+
+    <div class="register-container">
+      <h2>Create Account</h2>
+
+      <form method="post" action="{{ url_for('register') }}" class="register-form">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" required>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required>
+
+        <button type="submit" class="btn-primary">Register</button>
+      </form>
+
+      <p>Already have an account?
+         <a href="{{ url_for('login') }}">Login here</a>
+      </p>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='tasks.css') }}">
+
+<div class="panel">
+
+    <h1 class="taskPageTitle">My Tasks ✨</h1>
+    <p class="taskSubtitle">Organize your life the pastel way 💗</p>
+
+    <!-- Add Task Button -->
+    <button class="addTaskBtn" id="openAddModal">＋ Add Task</button>
+
+    <!-- Kanban Board -->
+    <div class="kanbanBoard">
+
+        <!-- To Do -->
+        <div class="kanbanColumn" data-status="todo">
+            <h2 class="columnTitle todoTitle">To Do</h2>
+            <div class="taskColumn" id="todo"></div>
+        </div>
+
+        <!-- In Progress -->
+        <div class="kanbanColumn" data-status="inprogress">
+            <h2 class="columnTitle progressTitle">In Progress</h2>
+            <div class="taskColumn" id="inprogress"></div>
+        </div>
+
+        <!-- Done -->
+        <div class="kanbanColumn" data-status="done">
+            <h2 class="columnTitle doneTitle">Done</h2>
+            <div class="taskColumn" id="done"></div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- -------------------------------------------------------- -->
+<!-- ADD TASK MODAL -->
+<!-- -------------------------------------------------------- -->
+<div class="modal hidden" id="addTaskModal">
+    <div class="modalContent">
+        <h3>Add New Task 💕</h3>
+
+        <label>Title</label>
+        <input type="text" id="add_title" placeholder="Study for exam...">
+
+        <label>Description</label>
+        <textarea id="add_description" placeholder="Details..."></textarea>
+
+        <label>Subject</label>
+        <input type="text" id="add_subject" placeholder="Math, English, etc.">
+
+        <label>Due Date</label>
+        <input type="date" id="add_due_date">
+
+        <div class="modalButtons">
+            <button class="cancelBtn closeAddModal">Cancel</button>
+            <button class="saveBtn" id="saveAddTask">Save Task</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- -------------------------------------------------------- -->
+<!-- EDIT TASK MODAL -->
+<!-- -------------------------------------------------------- -->
+<div class="modal hidden" id="editTaskModal">
+    <div class="modalContent">
+        <h3>Edit Task 💗</h3>
+
+        <input type="hidden" id="edit_task_id">
+
+        <label>Title</label>
+        <input type="text" id="edit_title">
+
+        <label>Description</label>
+        <textarea id="edit_description"></textarea>
+
+        <label>Subject</label>
+        <input type="text" id="edit_subject">
+
+        <label>Due Date</label>
+        <input type="date" id="edit_due_date">
+
+        <div class="modalButtons">
+            <button class="cancelBtn closeEditModal">Cancel</button>
+            <button class="saveBtn" id="saveEditTask">Save Changes</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- -------------------------------------------------------- -->
+<!-- DELETE CONFIRM MODAL -->
+<!-- -------------------------------------------------------- -->
+<div class="modal hidden" id="deleteModal">
+    <div class="modalContent">
+        <h3>Delete Task? 🗑️</h3>
+        <p>This cannot be undone.</p>
+
+        <input type="hidden" id="delete_task_id">
+
+        <div class="modalButtons">
+            <button class="cancelBtn closeDeleteModal">Cancel</button>
+            <button class="deleteBtn" id="confirmDeleteTask">Delete</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="{{ url_for('static', filename='tasks.js') }}"></script>
+
+{% endblock %}

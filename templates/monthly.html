@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='monthly.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
+
+<!-- Only tasks now -->
+<script>
+  const monthTasks = JSON.parse(`{{ month_tasks|tojson|safe }}`);
+</script>
+
+<div class="panel calendarPanel">
+
+  <!-- Header -->
+  <header class="calendar-header">
+    <h1 class="calendar-title">Monthly View</h1>
+    <p class="calendar-subtitle">Your tasks at a glance ✨</p>
+  </header>
+
+  <!-- Calendar Grid -->
+  <div class="calendar-grid-wrapper">
+
+    <!-- Weekday Labels -->
+    <div class="weekday-row">
+      <div class="weekday">Sun</div>
+      <div class="weekday">Mon</div>
+      <div class="weekday">Tue</div>
+      <div class="weekday">Wed</div>
+      <div class="weekday">Thu</div>
+      <div class="weekday">Fri</div>
+      <div class="weekday">Sat</div>
+    </div>
+
+    <!-- Calendar Days -->
+    <div id="daysGrid" class="days-grid"></div>
+
+  </div>
+</div>
+
+<!-- Just the calendar JS, no event modals -->
+<script src="{{ url_for('static', filename='monthly.js') }}"></script>
+
+{% endblock %}

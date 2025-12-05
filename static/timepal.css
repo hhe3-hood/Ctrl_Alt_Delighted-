@@ -1,0 +1,151 @@
+/* 🌸 GLOBAL RESET + THEME */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #f6d5f7 0%, #fbe9d7 100%);
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+
+    padding-top: 120px; /* Push content below fixed navbar */
+}
+
+/* 🌸 PAGE WRAPPER (for all pages) */
+.pageWrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+/* 🌸 PANEL — used by Monthly + Tasks */
+.panel {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 50px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 🌸 KEEP FOR BACKWARDS COMPATIBILITY (your old pages used this) */
+.pageContent {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 🌸 TEXT STYLES */
+h1, h2, h3 {
+    font-weight: 600;
+    color: #ff4fa3;
+}
+
+/* 🌸 BUTTONS */
+button, .signOutButton, .addButton {
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 🌸 Add Event Button */
+.addButton {
+    background-color: #ff6fb7;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.addButton:hover {
+    background-color: #ff87c9;
+}
+
+/* 🌸 Sign Out Button */
+.signOutButton {
+    background-color: #ff5d5d;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.signOutButton:hover {
+    background-color: #ff7b7b;
+}
+
+/* 🌸 NAVBAR STYLES — ensure full width + fixed position */
+.navbar {
+    width: 100%;
+    background: linear-gradient(135deg, #ff9ad5, #ffd4bd);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+
+/* Nav links container */
+.navLinkContainer {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navLink a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.2s;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+/* Active page highlight */
+.navLink a.active,
+.navLink a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
+
+/* Right side (Add Event + Sign Out) */
+.actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* 🌸 Fix tasks & monthly from being too skinny */
+.taskPageContainer,
+.calendar-page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* 🌸 Optional modal blur background */
+.modal {
+    backdrop-filter: blur(4px);
+}

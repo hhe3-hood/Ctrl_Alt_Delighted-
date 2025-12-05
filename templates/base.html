@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "mainhead.html" %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='timepal.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    {% if current_user.is_authenticated %}
+      {% include "navigationBar.html" %}
+    {% endif %}
+
+    <!-- Main content wrapper -->
+    <div class="pageWrapper">
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>

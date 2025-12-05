@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='timepal.css') }}">
+
+<div class="panel">
+
+    <h1 style="font-size: 2.3rem; margin-bottom: 10px; color:#ff4fa3;">
+        About TimePal ✨
+    </h1>
+
+    <p style="font-size: 1.1rem; color:#555; max-width: 750px; margin: 0 auto;">
+        TimePal is a pastel-themed academic planner designed to help students balance
+        school, work, and personal life with clarity and calm. Created for 
+        <strong>CS 524 – Principles of Software Engineering</strong>, TimePal began as a mobile-app concept
+        and evolved into a fully realized web application built with HTML5, CSS3, JavaScript,
+        Python, and SQL.  
+    </p>
+
+    <br>
+
+    <h2 style="color:#ff7bb0; margin-bottom: 10px;">🎯 Our Mission</h2>
+    <p style="max-width: 750px; margin: 0 auto; color: #555;">
+        Students often juggle multiple calendars — one for school, one for work, one for life —
+        leading to clutter, confusion, and missed deadlines. TimePal solves this by offering a
+        unified, student-focused platform for scheduling, planning, and tracking academic tasks.
+        Our goal is simplicity, reliability, and supporting good study habits with gentle reminders
+        and clear visual organization. 
+    </p>
+
+    <br>
+
+    <h2 style="color:#ff7bb0; margin-bottom: 10px;">✨ What TimePal Helps You Do</h2>
+
+    <ul style="text-align:left; display:inline-block; color:#555; font-size:1.05rem; line-height:1.8;">
+        <li>Stay organized with a clean monthly calendar view</li>
+        <li>Add, edit, and manage academic tasks and assignments</li>
+        <li>Allocate study time, rest breaks, and reminders</li>
+        <li>Keep your schedule visually clean with simple color-coding</li>
+        <li>Protect user privacy with secure login + data separation</li>
+        <li>Integrate with third-party calendar services (future plan)</li>
+    </ul>
+
+    <br><br>
+
+    <h2 style="color:#ff7bb0;">👩‍💻 Development Team</h2>
+    <p style="color:#555; font-size:1.05rem;">
+        Created by:
+    </p>
+
+    <div style="font-size:1.15rem; color:#444; margin-top: 10px;">
+        <strong>Claudia Lee</strong> · 
+        <strong>Lindsey Hilditch</strong> · 
+        <strong>Hannah-Grace Enriquez</strong>
+    </div>
+    <p style="color:#777; margin-top: 5px; font-size:0.95rem;">
+        Under the guidance of Professor Shahinur Alam  
+        <br>CS 524 – Fall 2025 
+    </p>
+
+    <br><br>
+
+    <h2 style="color:#ff7bb0;">🌱 Our Origin Story</h2>
+    <p style="max-width: 750px; margin: 0 auto; color:#555;">
+        TimePal began as an ambitious mobile-app idea, but to deliver a polished and functional
+        product within our semester timeline, we transitioned to a web-first approach. This decision
+        allowed us to focus on core functionality, solid engineering principles, and a clean, usable
+        interface — all essential components outlined in our Software Requirements Specification. 
+    </p>
+
+    <br><br>
+
+    <h2 style="color:#ff7bb0;">💖 A Thank-You</h2>
+    <p style="max-width: 750px; margin: 0 auto; color:#555;">
+        Thank you for exploring TimePal! We hope this project not only showcases our work
+        in software engineering, but also helps students find balance in their busy lives.  
+        Stay organized, stay motivated, and don’t forget to rest ✨
+    </p>
+
+</div>
+
+{% endblock %}

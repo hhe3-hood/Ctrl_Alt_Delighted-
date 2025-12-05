@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <!-- Left: Logo -->
+  <div class="logo">TimePal</div>
+
+  <!-- Center: Navigation Links -->
+  <ul class="navLinkContainer">
+    <li class="navLink"><a href="/" class="{{ 'active' if request.path == '/' else '' }}">Home</a></li>
+    <li class="navLink"><a href="/monthly" class="{{ 'active' if 'monthly' in request.path else '' }}">Monthly</a></li>
+    <li class="navLink"><a href="/tasks" class="{{ 'active' if 'tasks' in request.path else '' }}">Tasks</a></li>
+    <li class="navLink"><a href="/about" class="{{ 'active' if 'about' in request.path else '' }}">About</a></li>
+  </ul>
+
+  <!-- Right: Add + Logout -->
+  <div class="actions">
+    <a href="/logout" class="signOutButton">Sign Out</a>
+  </div>
+</nav>
