@@ -79,7 +79,10 @@ VALUES ('Default Blue', '#3B82F6'),
        ('Cool Green', '#22C55E');
 
 -- Testing Data for Default Tasks
--- -- -- Demo Data userID: 5101582a-794c-4c14-9b6f-4c4f7222919b
+-- -- -- Demo Data userID: c50f6a59-ac8f-49fd-a35a-29c432b5fa4d
+
+INSERT INTO Users (user_id, username, password_hash, email_verified)
+VALUES ('c50f6a59-ac8f-49fd-a35a-29c432b5fa4d', 'demo_user', 'some_hash', 1);
 
 INSERT INTO Tasks (
     task_id, user_id, task_type_id, color_scheme_id,
