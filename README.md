@@ -1,4 +1,4 @@
-![Banner](https://github.com/therookie-tech/repo/raw/main/assets/banner.png)
+![Banner](https://github.com/hhe3-hood/Ctrl_Alt_Delighted-/blob/main/banner.png)
 
 # 🌈✨ Ctrl_Alt_Delighted: TimePal Local Setup Guide ✨🌈
 Welcome to the best Flask website project EVER!
